@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DATN_App_Windows", "DATN_App_Windows\DATN_App_Windows.csproj", "{97BE4E4B-4391-4A18-8F3E-A4D4E3105449}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9900B572-209C-462F-AF8B-515EA88B8D20}"
+	ProjectSection(SolutionItems) = preProject
+		key_name.json = key_name.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -95,3 +95,4 @@ E:\Do_An_Tot_Nghiep\App_Windows\DATN_App_Windows\DATN_App_Windows\obj\Debug\DATN
 E:\Do_An_Tot_Nghiep\App_Windows\DATN_App_Windows\DATN_App_Windows\obj\Debug\DATN_App_Windows.csproj.CopyComplete
 E:\Do_An_Tot_Nghiep\App_Windows\DATN_App_Windows\DATN_App_Windows\obj\Debug\DATN_App_Windows.exe
 E:\Do_An_Tot_Nghiep\App_Windows\DATN_App_Windows\DATN_App_Windows\obj\Debug\DATN_App_Windows.pdb
+E:\Do_An_Tot_Nghiep\App_Windows\DATN_App_Windows\DATN_App_Windows\obj\Debug\DATN_App_Windows.doi_ten.resources
