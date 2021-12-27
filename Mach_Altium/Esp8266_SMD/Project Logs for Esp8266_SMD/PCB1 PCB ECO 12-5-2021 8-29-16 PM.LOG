@@ -1,0 +1,24 @@
+Removed Pin From Net: NetName=NetBA1_5 Pin=D1-1
+Removed Pin From Net: NetName=+5 Pin=D1-2
+Removed Pin From Net: NetName=relay1 Pin=R20-2
+Removed Pin From Net: NetName=relay1 Pin=R21-2
+Removed Pin From Net: NetName=NetC8_1 Pin=U3-1
+Removed Pin From Net: NetName=GND Pin=U3-2
+Removed Member From Class: ClassName=Sheet1 Member=D1
+Change Component Footprint: Designator=R1 Old Footprint=RES-SMD-0805 New Footprint=RES-SMD-1206
+Change Component Footprint: Designator=R11 Old Footprint=SM-RES-1206 New Footprint=SM-RES-0805
+Added Component: Designator=D25(D5AN)
+Add component (AddParameter): Name = "Code - JEDEC"; Value = "DO-214-AB"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Revision"; Value = "July-2002: Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1N5007"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetBA1_5 Pin=D25-1
+Added Pin To Net: NetName=+5 Pin=D25-2
+Added Pin To Net: NetName=relay2 Pin=R20-2
+Added Pin To Net: NetName=relay3 Pin=R21-2
+Added Pin To Net: NetName=GND Pin=U3-1
+Added Pin To Net: NetName=NetC8_1 Pin=U3-2
+Added Member To Class: ClassName=Sheet1 Member=Component C16 CAP
+Added Member To Class: ClassName=Sheet1 Member=Component D25 Diode
+Added Room: Name=Sheet1

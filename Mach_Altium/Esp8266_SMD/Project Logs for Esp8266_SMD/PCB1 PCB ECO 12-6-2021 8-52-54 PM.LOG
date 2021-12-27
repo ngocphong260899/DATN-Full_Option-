@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=C14 Old Footprint=SM-CAP-0805 New Footprint=SM-Cap-1206
+Change Component Footprint: Designator=C15 Old Footprint=SM-CAP-0805 New Footprint=SM-Cap-1206
+Change Component Footprint: Designator=R11 Old Footprint=SM-RES-1206 New Footprint=SM-RES-0805
+Added Room: Name=Sheet1

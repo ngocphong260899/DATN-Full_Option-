@@ -1,0 +1,22 @@
+Removed Pin From Net: NetName=VCC Pin=D4-2
+Removed Pin From Net: NetName=VCC Pin=D5-2
+Removed Pin From Net: NetName=VCC Pin=D6-2
+Removed Pin From Net: NetName=VCC Pin=R16-1
+Removed Pin From Net: NetName=VCC Pin=R17-1
+Removed Pin From Net: NetName=VCC Pin=R18-1
+Removed Pin From Net: NetName=VCC Pin=RL1-1
+Removed Pin From Net: NetName=VCC Pin=RL2-1
+Removed Pin From Net: NetName=VCC Pin=RL3-1
+Change Component Footprint: Designator=C6 Old Footprint=SM-CAP-0805 New Footprint=SM-Cap-1206
+Change Component Footprint: Designator=C14 Old Footprint=SM-CAP-0805 New Footprint=SM-Cap-1206
+Change Component Footprint: Designator=C15 Old Footprint=SM-CAP-0805 New Footprint=SM-Cap-1206
+Added Pin To Net: NetName=+5 Pin=D4-2
+Added Pin To Net: NetName=+5 Pin=D5-2
+Added Pin To Net: NetName=+5 Pin=D6-2
+Added Pin To Net: NetName=+5 Pin=R16-1
+Added Pin To Net: NetName=+5 Pin=R17-1
+Added Pin To Net: NetName=+5 Pin=R18-1
+Added Pin To Net: NetName=+5 Pin=RL1-1
+Added Pin To Net: NetName=+5 Pin=RL2-1
+Added Pin To Net: NetName=+5 Pin=RL3-1
+Added Room: Name=Sheet1

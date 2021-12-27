@@ -16,7 +16,7 @@ using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json;
 using System.IO;
-
+using System.Data.SqlClient;
 namespace DATN_App_Windows
 {
     
@@ -28,6 +28,14 @@ namespace DATN_App_Windows
         //parse_Json cmd = new parse_Json();
         Cmd_Json_Pub jsonPub = new Cmd_Json_Pub();
         control_json cmd = new control_json();
+
+        SqlConnection connection;
+        SqlCommand command;
+
+        string sql_connect = @"Data Source=DESKTOP-U790TPU\WINCC;Initial Catalog=Data_IOT;Integrated Security=True";
+
+
+
         string data_recv = string.Empty;
         private int hours = 0;
         private int mins = 0;
@@ -36,7 +44,7 @@ namespace DATN_App_Windows
         {
             InitializeComponent();
            // InitializeComponent();
-            stream = new MJPEGStream("http://192.168.1.125:4747/video");
+            stream = new MJPEGStream("http://192.168.1.102:4747/video");
             stream.NewFrame += Stream_NewFrame;
         }
 
@@ -85,6 +93,9 @@ namespace DATN_App_Windows
                 int state = Int32.Parse(stt);
                 control_render(position, state);
                 view_ssid(ssid, streng);
+
+                command = connection.CreateCommand();
+                command.CommandText = "insert into ";
             }
             catch
             {
@@ -154,11 +165,16 @@ namespace DATN_App_Windows
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            connection = new SqlConnection(sql_connect);
+            connection.Open();
             stream.Start();
             timer1.Start();
             readFileJson();
             Mqtt_Connect();
             get_State_device();
+
+            connection.Close();
+           
         }
 
         public void readFileJson()
@@ -244,7 +260,8 @@ namespace DATN_App_Windows
 
         private void bunifuButton6_Click(object sender, EventArgs e)
         {
-            Application.Restart();
+           // Application.Restart();
+            get_State_device();
         }
         public void load_Data_doiten(string data1, string data2, string data3, string data4)
         {
@@ -329,6 +346,7 @@ namespace DATN_App_Windows
                         {
                             string value = cmd.cmd1_off;
                             client.Publish("ngocphong260899/app", Encoding.UTF8.GetBytes(value), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
+
                         }
                         break;
                     case 2:

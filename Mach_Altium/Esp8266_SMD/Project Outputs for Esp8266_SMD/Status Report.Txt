@@ -1,0 +1,10 @@
+Output: Report Board Stack
+Type  : Report Board Stack
+From  : Project [Esp8266_SMD.PrjPcb]
+   Generated File[PCB1.xls]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 1:04:30 PM On 12/13/2021
