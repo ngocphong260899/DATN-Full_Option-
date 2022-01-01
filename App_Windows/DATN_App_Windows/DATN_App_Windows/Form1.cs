@@ -31,6 +31,8 @@ namespace DATN_App_Windows
 
         SqlConnection connection;
         SqlCommand command;
+        DataTable DataTable = new DataTable();
+        SqlDataAdapter SqlDataAdapter = new SqlDataAdapter();
 
         string sql_connect = @"Data Source=DESKTOP-U790TPU\WINCC;Initial Catalog=Data_IOT;Integrated Security=True";
 
@@ -46,6 +48,13 @@ namespace DATN_App_Windows
            // InitializeComponent();
             stream = new MJPEGStream("http://192.168.1.102:4747/video");
             stream.NewFrame += Stream_NewFrame;
+        }
+        public void load_data()
+        {
+            command = connection.CreateCommand();
+            SqlDataAdapter.SelectCommand = command;
+            DataTable.Clear();
+            //SqlDataAdapter.Fill(DataTable);
         }
 
         private void Stream_NewFrame(object sender, NewFrameEventArgs eventArgs)
@@ -70,7 +79,8 @@ namespace DATN_App_Windows
                 bunifuLabel10.ForeColor = Color.Green;
             }
         }
-
+        String ssid;
+        String streng;
         private void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
             //throw new NotImplementedException();
@@ -87,15 +97,17 @@ namespace DATN_App_Windows
                 }
                 String stt = str_json.status;
                 String pos = str_json.pos;
-                String ssid = str_json.ssid;
-                String streng = str_json.streng;
+                ssid = str_json.ssid;
+                streng = str_json.streng;
                 int position = Int32.Parse(pos);
                 int state = Int32.Parse(stt);
                 control_render(position, state);
                 view_ssid(ssid, streng);
 
                 command = connection.CreateCommand();
-                command.CommandText = "insert into ";
+                command.CommandText = "insert into data_sub(position,statuss,timer) values('" + position + "','" + state + "','" + bunifuLabel4.Text + "')";
+                command.ExecuteNonQuery();
+                load_data();
             }
             catch
             {
@@ -154,6 +166,12 @@ namespace DATN_App_Windows
 
         }
 
+        //public void infor_wifi(String ssid, String streng)
+        //{
+        //    label4.Text = ssid;
+        //    label5.Text = streng;
+        //}
+
         private void bunifuLabel1_Click(object sender, EventArgs e)
         {
 
@@ -172,8 +190,8 @@ namespace DATN_App_Windows
             readFileJson();
             Mqtt_Connect();
             get_State_device();
-
-            connection.Close();
+          
+         
            
         }
 
@@ -203,6 +221,7 @@ namespace DATN_App_Windows
                 {
                     string value = cmd.cmd1_off;
                     client.Publish("ngocphong260899/app", Encoding.UTF8.GetBytes(value), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
+
                 }
                 else if (label1.Text == "OFF")
                 {
@@ -290,7 +309,10 @@ namespace DATN_App_Windows
         private void bunifuButton10_Click(object sender, EventArgs e)
         {
             String msg = numericUpDown1.Value + "hour" + numericUpDown2.Value + "minute" + " " + "Trang thai:" + comboBox1.Text;
-
+            command = connection.CreateCommand();
+            command.CommandText = "insert into hen_gio(gio,phut,statuss) values('"+ numericUpDown1.Value + "','" + numericUpDown2.Value + "','" + comboBox1.Text + "')";
+            command.ExecuteNonQuery();
+            load_data();
             listBox1.Items.Add(msg);
 
             if (numericUpDown2.Value < 1 && numericUpDown1.Value < 1)
