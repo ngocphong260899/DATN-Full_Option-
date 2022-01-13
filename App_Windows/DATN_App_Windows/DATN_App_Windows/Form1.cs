@@ -46,7 +46,7 @@ namespace DATN_App_Windows
         {
             InitializeComponent();
            // InitializeComponent();
-            stream = new MJPEGStream("http://192.168.1.102:4747/video");
+            stream = new MJPEGStream("http://192.168.1.22:4747/video");
             stream.NewFrame += Stream_NewFrame;
         }
         public void load_data()
@@ -364,16 +364,22 @@ namespace DATN_App_Windows
 
                 switch (comboBox1.SelectedIndex)
                 {
-                    case 1:
+                    case 0:
                         {
-                            string value = cmd.cmd1_off;
+                            string value = cmd.cmd1_on;
                             client.Publish("ngocphong260899/app", Encoding.UTF8.GetBytes(value), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
 
                         }
                         break;
+                    case 1:
+                        {
+                            string value = cmd.cmd1_off;
+                            client.Publish("ngocphong260899/app", Encoding.UTF8.GetBytes(value), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
+                        }
+                        break;
                     case 2:
                         {
-                            string value = cmd.cmd1_on;
+                            string value = cmd.cmd2_on;
                             client.Publish("ngocphong260899/app", Encoding.UTF8.GetBytes(value), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
                         }
                         break;
@@ -385,17 +391,11 @@ namespace DATN_App_Windows
                         break;
                     case 4:
                         {
-                            string value = cmd.cmd3_off;
-                            client.Publish("ngocphong260899/app", Encoding.UTF8.GetBytes(value), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
-                        }
-                        break;
-                    case 5:
-                        {
                             string value = cmd.cmd3_on;
                             client.Publish("ngocphong260899/app", Encoding.UTF8.GetBytes(value), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
                         }
                         break;
-                    case 6:
+                    case 5:
                         {
                             string value = cmd.cmd3_off;
                             client.Publish("ngocphong260899/app", Encoding.UTF8.GetBytes(value), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
