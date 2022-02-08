@@ -311,9 +311,9 @@ namespace DATN_App_Windows
             int hour = (int)numericUpDown1.Value;
             int minute = (int)numericUpDown2.Value;
             int status = comboBox1.SelectedIndex +1;
-         
+            int chanel = comboBox2.SelectedIndex + 1;
 
-            string msg_respon = "{\"sw_wifi\":3," + "\"hour\""+ ':' + hour + ',' + "\"minute\""+ ':' + minute + ',' + "\"status\""+ ':' + status + '}';
+            string msg_respon = "{\"sw_wifi\":3,"+"\"pos\""+':'+chanel+','+ "\"hour\""+ ':' + hour + ',' + "\"minute\""+ ':' + minute + ',' + "\"status\""+ ':' + status + '}';
             client.Publish("ngocphong260899/app", Encoding.UTF8.GetBytes(msg_respon), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
 
             String msg = numericUpDown1.Value + ' ' + "hour" + numericUpDown2.Value + ' ' + "minute" + ',' + "Trang thai:" + comboBox1.Text;
@@ -328,10 +328,12 @@ namespace DATN_App_Windows
         private void bunifuButton11_Click(object sender, EventArgs e)
         {
             int hour = 0;
-            int minute = 0;
+            int minute =0;
             int status = 0;
-            string msg_respon = "{\"sw_wifi\":3," + "\"hour\"" + ':' + hour + ',' + "\"minute\"" + ':' + minute + ',' + "\"status\"" + ':' + status + '}';
-            listBox1.Items.Clear();
+            int chanel = comboBox2.SelectedIndex + 1;
+            string msg_respon = "{\"sw_wifi\":3," + "\"pos\"" + ':' + chanel + ',' + "\"hour\"" + ':' + hour + ',' + "\"minute\"" + ':' + minute + ',' + "\"status\"" + ':' + status + '}';
+            client.Publish("ngocphong260899/app", Encoding.UTF8.GetBytes(msg_respon), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
+            
         }
     }
 }
