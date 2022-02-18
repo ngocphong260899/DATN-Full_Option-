@@ -46,7 +46,7 @@ namespace DATN_App_Windows
         {
             InitializeComponent();
            // InitializeComponent();
-            stream = new MJPEGStream("http://192.168.1.22:4747/video");
+            stream = new MJPEGStream("http://192.168.1.125:4747/video");
             stream.NewFrame += Stream_NewFrame;
         }
         public void load_data()
@@ -333,6 +333,8 @@ namespace DATN_App_Windows
             int chanel = comboBox2.SelectedIndex + 1;
             string msg_respon = "{\"sw_wifi\":3," + "\"pos\"" + ':' + chanel + ',' + "\"hour\"" + ':' + hour + ',' + "\"minute\"" + ':' + minute + ',' + "\"status\"" + ':' + status + '}';
             client.Publish("ngocphong260899/app", Encoding.UTF8.GetBytes(msg_respon), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
+            string msg = "Delete alarm:" + comboBox2.Text;
+            listBox1.Items.Add(msg);
             
         }
     }
