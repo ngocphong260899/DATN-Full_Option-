@@ -316,7 +316,7 @@ namespace DATN_App_Windows
             string msg_respon = "{\"sw_wifi\":3,"+"\"pos\""+':'+chanel+','+ "\"hour\""+ ':' + hour + ',' + "\"minute\""+ ':' + minute + ',' + "\"status\""+ ':' + status + '}';
             client.Publish("ngocphong260899/app", Encoding.UTF8.GetBytes(msg_respon), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, true);
 
-            String msg = numericUpDown1.Value + ' ' + "hour" + numericUpDown2.Value + ' ' + "minute" + ',' + "Trang thai:" + comboBox1.Text;
+            String msg = hour.ToString() + ' ' + "hour" + numericUpDown2.Value + ' ' + "minute" + ',' + "Trang thai:" + comboBox1.Text;
 
             command = connection.CreateCommand();
             command.CommandText = "insert into hen_gio(gio,phut,statuss) values('" + numericUpDown1.Value + "','" + numericUpDown2.Value + "','" + comboBox1.Text + "')";
